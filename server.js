@@ -19,8 +19,8 @@ app.use('/users', userroutes);
 // private route
 app.use('/userdata', validateUser, userdata);
 
-validateUser = (req, res, next) => {
-// function validateUser(req, res, next) {
+// validateUser = (req, res, next) => {
+function validateUser(req, res, next) {
   jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function(err, decoded) {
     if (err) {
       res.status(401).json({status:"error", message: err.message, data:null});
