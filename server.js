@@ -3,12 +3,15 @@ const logger = require('morgan');
 const userroutes = require('./app/routes/routes');
 const userdata = require('./app/routes/userdata');
 const bodyParser = require('body-parser');
+const logreqres = require('./app/api/common/logreqres');
 var jwt = require('jsonwebtoken');
 const app = express();
 require('dotenv').config();
 
 app.set('secretKey', process.env.SECRET_KEY); // jwt secret token
-app.use(logger('dev'));
+// app.use(logger('dev'));
+// app.use(logger('combined'))
+app.use(logreqres);
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use(bodyParser.json());
 app.get('/' , (req, res) => {
@@ -26,7 +29,7 @@ function validateUser(req, res, next) {
       res.status(401).json({status:"error", message: err.message, data:null});
     }else{
       // add user name to request
-      console.log(decoded);
+      // console.log(decoded);
       if(decoded.username !== ''){
         req.body.usernamedecoded = decoded.username;
       }else{

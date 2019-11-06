@@ -24,6 +24,8 @@ describe('Routing', function() {
             endpoint: process.env.AWS_ENDPOINT
         });
         let dynamodb = new AWS.DynamoDB();
+        let usertablecreated = false;
+        let logintablecreated = false;
         dynamodb.listTables({Limit: 10}, function(err, data) {
             if (err) {
                 console.log("Error", err.code);
@@ -106,7 +108,7 @@ describe('Routing', function() {
                 }
             }
         });						
-        
+        done();
     });
     describe('POST /users/authenticate', function() {
         it('responds with json', function(done) {
