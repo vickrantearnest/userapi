@@ -10,7 +10,7 @@ require('dotenv').config();
 app.set('secretKey', process.env.SECRET_KEY); // jwt secret token
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
-
+// app.use(bodyParser.json());
 app.get('/' , (req, res) => {
   res.status(404).json({message: "Not found"});
 });

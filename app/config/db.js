@@ -28,11 +28,20 @@ const logintable = process.env.USERLOGINSLOGTABLE
 //    Item: {'username' : {S: 'vickrant.earnest@gmail.com'}, 'password' : {S: pass}, 'status' : {N: '1'}, 'mobile': {S:'9860132098'}, 'location' : {S:'Mumbai'}
 //    }
 // };
-let params = {
-   TableName : logintable,
-   Item: {'username' : {S: 'vickrant.earnest@gmail.com'}, 'timestamp': { N: '1572950293' }
-   }
-};
+bcrypt.hash('vimal@123', saltRounds, function(err, hash) {
+   let params = {
+       TableName : usertable,
+       Item: {'username' : {S: 'vickrant.earnest@gmail.com'}, 'password' : {S: hash}, 'status' : {N: '1'}, 'mobile': {S:'9860132098'}, 'location' : {S:'Mumbai'}
+       }
+   };
+   dynamodb.putItem(params, function(err, data) {
+       if (err) {
+           console.log("Error", err);
+       } else {
+           console.log("Success", data);
+       }
+   });
+});
 
 
 // dynamodb.putItem(params, function(err, data) {
@@ -49,13 +58,13 @@ let params = {
 // };
  
 
-dynamodb.putItem(params, function(err, data) {
-if (err) {
-   console.log("Error", err);
-} else {
-   console.log("Success", data);
-}
-});
+// dynamodb.putItem(params, function(err, data) {
+// if (err) {
+//    console.log("Error", err);
+// } else {
+//    console.log("Success", data);
+// }
+// });
 // try{
 //    var createLogins = function(callback) {
 //       var params = {

@@ -53,9 +53,11 @@ module.exports = {
                   "username": req.body.username
             }
          };
+         console.log(params);
          let documentClient = new AWS.DynamoDB.DocumentClient();
          documentClient.get(params, (err, data) => {
-         //   console.log(data);
+            console.log('user found');
+            console.log(data);
             if(Object.keys(data).length === 0){
                let resp = {message: "Auth Error!!!", data:{}};
                console.log('response');
