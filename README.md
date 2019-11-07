@@ -16,10 +16,12 @@ ENVIRONMENT=dev
 SECRET_KEY=SecretKeyGeneralUserRestApi
 TOKEN_VALID_TIME=5min
 
-3. Start the server on localhost by using below command:
+3. do npm install to get all the node modules
+
+4. Start the server on localhost by using below command:
 node server.js
 
-4. After starting the server run the tests using below command:
+5. After starting the server run the tests using below command:
 npm test
 
 In first iteration test may fail will be fixing it.
