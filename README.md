@@ -1,7 +1,7 @@
 # userapi
 **Setting up Environment**
 ----
-
+```
 please create .env file at root folder with the required aws dynamodb credentials
 AWS_KEY=<AWS_KEY>
 AWS_SECRET=<AWS_SECRET>
@@ -13,9 +13,18 @@ ENVIRONMENT=dev
 SECRET_KEY=SecretKeyGeneralUserRestApi
 TOKEN_VALID_TIME=5min
 
+Start the server on localhost by using below command:
+node server.js
+
+After starting the server run the tests using below command:
+npm test
+
+In first iteration test may fail will be fixing it.
+
+```
 **Authenticate User**
 ----
-  Returns json data about a single user.
+  Returns json data with auth token.
 
 * **URL**
 
