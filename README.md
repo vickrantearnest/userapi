@@ -1,4 +1,18 @@
 # userapi
+**Setting up Environment**
+----
+
+please create .env file at root folder with the required aws dynamodb credentials
+AWS_KEY=<AWS_KEY>
+AWS_SECRET=<AWS_SECRET>
+AWS_REGION=<AWS_REGION>
+AWS_ENDPOINT=<AWS_ENDPOINT>
+USERTABLE=Users
+USERLOGINSLOGTABLE=Logins
+ENVIRONMENT=dev
+SECRET_KEY=SecretKeyGeneralUserRestApi
+TOKEN_VALID_TIME=5min
+
 **Authenticate User**
 ----
   Returns json data about a single user.
@@ -89,7 +103,7 @@
     `data = { username: 'vickrant.earnest@gmail.com', pass: 'vimal@123' }`
   ```javascript
     $.ajax({
-      url: "/users/authenticate",
+      url: "/users/userdetails",
       data: data,
       dataType: "json",
       type : "POST",

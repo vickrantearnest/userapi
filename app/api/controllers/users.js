@@ -40,6 +40,7 @@ module.exports = {
       }
    },
    authenticate: (req, res, next) => {
+      // console.log(req.body);
       if(!req.body.hasOwnProperty('username')){
          let resp = {message: "username is copulsory!!!", data:{}};
             res.status(401).json(resp);
@@ -50,10 +51,10 @@ module.exports = {
                   "username": req.body.username
             }
          };
-         // console.log(params);
+         console.log(params);
          let documentClient = new AWS.DynamoDB.DocumentClient();
          documentClient.get(params, (err, data) => {
-            console.log('user found');
+            // console.log('user found');
             // console.log(data);
             if(Object.keys(data).length === 0){
                let resp = {message: "Auth Error!!!", data:{}};
