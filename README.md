@@ -4,7 +4,7 @@
 ```
 Please install node and npm.
 
-After checkout the projec in a folder create .env file at root folder with the required aws dynamodb credentials
+After checkout in a folder create .env file at root folder with the required aws dynamodb credentials
 
 AWS_KEY=<AWS_KEY>
 AWS_SECRET=<AWS_SECRET>
