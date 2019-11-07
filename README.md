@@ -2,9 +2,9 @@
 **Setting up Environment**
 ----
 ```
-Please install node and npm.
+1. Please install node and npm.
 
-After checkout in a folder create .env file at root folder with the required aws dynamodb credentials
+2. After checkout in a folder create .env file at root folder with the required aws dynamodb credentials
 
 AWS_KEY=<AWS_KEY>
 AWS_SECRET=<AWS_SECRET>
@@ -16,10 +16,10 @@ ENVIRONMENT=dev
 SECRET_KEY=SecretKeyGeneralUserRestApi
 TOKEN_VALID_TIME=5min
 
-Start the server on localhost by using below command:
+3. Start the server on localhost by using below command:
 node server.js
 
-After starting the server run the tests using below command:
+4. After starting the server run the tests using below command:
 npm test
 
 In first iteration test may fail will be fixing it.
