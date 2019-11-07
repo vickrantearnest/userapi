@@ -2,7 +2,10 @@
 **Setting up Environment**
 ----
 ```
-please create .env file at root folder with the required aws dynamodb credentials
+Please install node and npm.
+
+After checkout the projec in a folder create .env file at root folder with the required aws dynamodb credentials
+
 AWS_KEY=<AWS_KEY>
 AWS_SECRET=<AWS_SECRET>
 AWS_REGION=<AWS_REGION>
@@ -21,6 +24,8 @@ npm test
 
 In first iteration test may fail will be fixing it.
 
+Below are the API endpoints mentioned which can be used for interacting with the system.
+
 ```
 **Authenticate User**
 ----
@@ -28,7 +33,7 @@ In first iteration test may fail will be fixing it.
 
 * **URL**
 
-  /users/authenticate
+  http://localhost:3000/users/authenticate
 
 * **Method:**
 
@@ -73,7 +78,7 @@ In first iteration test may fail will be fixing it.
 
 * **URL**
 
-  /userdata/userdetails
+  http://localhost:3000/userdata/userdetails
 
 * **Method:**
 
