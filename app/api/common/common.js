@@ -17,4 +17,23 @@ exports.generateOtp = function () {
 	// 	return res.status(400).json({ status: 400, message: e.message });
 	// }
 }
+exports.userDataValidation = function (req, res, next) {
+	console.log('inside userDataValidation');
+	// Validate request parameters, queries using express-validator
+	const { name, email, phone } = req.body;
+	if (!name || !email || !phone) {
+		return res.status(400).json({ status: 400, message: 'Name, email, and phone are required.' });
+	}
+	if (!/^[a-zA-Z\s]+$/.test(name)) {
+		return res.status(400).json({ status: 400, message: 'Name must contain only letters and spaces.' });
+	}
+	if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
+		return res.status(400).json({ status: 400, message: 'Invalid email format.' });
+	}
+	if (!/^\d{10}$/.test(phone)) {
+		return res.status(400).json({ status: 400, message: 'Phone number must be 10 digits.' });
+	}
+	// If validation passes, proceed to the next middleware or route handler
+	next();	
+}
 // exports.data = helpers;
